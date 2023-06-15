@@ -1,0 +1,27 @@
+.add_content_button {
+    position: absolute;
+    bottom: 75px;
+    right: 35px;
+    padding: 0;
+    z-index: 99;
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    background: #007bff;
+    border: 0px solid;
+}
+
+.add_content_button i{
+    color: white;
+}
+
+.back_button_label {
+    display: flex;
+    gap: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.back_button_label .main_heading{
+    margin: 7px 0px 0px 0px;
+}

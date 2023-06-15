@@ -1,0 +1,49 @@
+<pf-dropdown hide-arrow class="user-menu">
+    <div slot="button">
+        <!-- [src]="user.picture" -->
+        <pf-image fallback-src="assets/img/default-profile.png" class="user-image-small" width="40" height="40"
+            alt="User Image" rounded></pf-image>
+    </div>
+
+    <div slot="menu">
+        <li class="user-header">
+            <!-- [src]="user.picture"  -->
+            <pf-image fallback-src="assets/img/default-profile.png" class="user-image-big" alt="User Image" width="90"
+                height="90" rounded></pf-image>
+
+            <p>
+                <span>{{email}}</span>
+                <small>
+                    <span class="mr-2">{{first_name}} {{last_name}}</span>
+                </small>
+            </p>
+        </li>
+        <!-- Menu Body -->
+        <!-- <li class="user-body">
+            <div class="row">
+                <div class="col-4 text-center">
+                    <a [routerLink]="['/']">Followers</a>
+                </div>
+                <div class="col-4 text-center">
+                    <a [routerLink]="['/']">Sales</a>
+                </div>
+                <div class="col-4 text-center">
+                    <a [routerLink]="['/']">Friends</a>
+                </div>
+            </div>
+        </li> -->
+        <!-- Menu Footer-->
+        <li class="user-footer">
+            <a class="btn btn-default btn-flat" [routerLink]="['/profile']">
+                Update
+            </a>
+            <a (click)="logout()" class="btn btn-default btn-flat float-right">
+                Logout
+            </a>
+        </li>
+    </div>
+</pf-dropdown>
+
+<p-confirmDialog  [style]="{width: '40vw'}" key="positionDialog"
+[baseZIndex]="10000">
+</p-confirmDialog>

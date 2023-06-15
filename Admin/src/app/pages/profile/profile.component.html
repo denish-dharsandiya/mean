@@ -1,0 +1,184 @@
+<ngx-spinner></ngx-spinner>
+
+<div class="container">
+    <h2 class="padding_main ml-3" style="font-size: 26px;">Profile</h2>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- Profile Image -->
+                    <div class="card card-primary card-outline">
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                <pf-image class="user-img" src="/assets/img/default-profile.png"
+                                    alt="User profile picture" width="100" height="100" rounded></pf-image>
+                            </div>
+
+                            <h3 class="profile-username text-center">
+                                {{email}}
+                            </h3>
+
+                            <h3 class="profile-username text-center">
+                                {{first_name}} {{last_name}}
+                                &nbsp;
+                                &nbsp;
+                                {{dob | date: 'MM-dd-yyyy'}}
+                            </h3>
+
+                            <ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item">
+                                    <b>Phone</b> <a class="float-right"> {{phone}}</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Gender</b>
+                                    <a class="float-right">{{gender}}</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Address :</b>
+                                    <a class="float-right">{{address? address :'-'}}</a>
+                                    <br>
+                                    <a class="float-right">{{city? city :'-'}}</a>
+                                    <br>
+                                    <a class="float-right">{{state? state :'-'}}</a>
+                                    <br>
+                                    <a class="float-right">{{zip_code? zip_code :'-'}}</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Created At</b>
+                                    <a class="float-right"> {{created_at | date: 'MM-dd-yyyy'}}</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 mb-3">
+                    <p-panel header="Update Profile">
+                        <form [formGroup]="editForm">
+                            <div class="row ">
+                                <div class="col-xs-12 col-sm-12 ">
+                                    <label for="inputtext"> Email </label>
+                                    <div>
+                                        <input class="edit_input_field" type="text" formControlName="email" pInputText>
+                                        <ng-container *ngIf="
+                                    editForm.controls['email'].invalid &&
+                                    (editForm.controls['email'].dirty ||
+                                      editForm.controls['email'].touched)
+                                  ">
+                                            <div *ngIf="editForm.controls['email'].errors?.['required']">
+                                                <small class="text-danger">Email is required</small>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-xs-6 col-sm-6 ">
+                                    <label for="inputtext"> First Name </label>
+                                    <div>
+                                        <input class="edit_input_field" type="text" formControlName="first_name"
+                                            pInputText>
+                                        <ng-container *ngIf="
+                                    editForm.controls['first_name'].invalid &&
+                                    (editForm.controls['first_name'].dirty ||
+                                      editForm.controls['first_name'].touched)
+                                  ">
+                                            <div *ngIf="editForm.controls['first_name'].errors?.['required']">
+                                                <small class="text-danger">First Name is required</small>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 ">
+                                    <label for="inputtext"> Last Name </label>
+                                    <div>
+                                        <input class="edit_input_field" type="text" formControlName="last_name"
+                                            pInputText>
+                                        <ng-container *ngIf="
+                                    editForm.controls['last_name'].invalid &&
+                                    (editForm.controls['last_name'].dirty ||
+                                      editForm.controls['last_name'].touched)
+                                  ">
+                                            <div *ngIf="editForm.controls['last_name'].errors?.['required']">
+                                                <small class="text-danger">Last Name is required</small>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-xs-6 col-sm-6 ">
+                                    <label for="inputtext"> Phone Number </label>
+                                    <div>
+                                        <input class="edit_input_field" type="text" formControlName="phone" pInputText
+                                            pKeyFilter="num" maxlength="10">
+                                        <ng-container *ngIf="
+                                    editForm.controls['phone'].invalid &&
+                                    (editForm.controls['phone'].dirty ||
+                                      editForm.controls['phone'].touched)
+                                  ">
+                                            <div *ngIf="editForm.controls['phone'].errors?.['required']">
+                                                <small class="text-danger">Phone is required</small>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 ">
+                                    <label for="inputtext"> DOB </label>
+                                    <div>
+                                        <p-calendar class="editProfile_calendar" placeholder="mm/dd/yyyy"
+                                            [showIcon]="true" formControlName="dob">
+                                        </p-calendar>
+                                        <ng-container *ngIf="
+                                    editForm.controls['dob'].invalid &&
+                                    (editForm.controls['dob'].dirty ||
+                                      editForm.controls['dob'].touched)
+                                  ">
+                                            <div *ngIf="editForm.controls['dob'].errors?.['required']">
+                                                <small class="text-danger">DOB is required</small>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-xs-12 col-sm-12 ">
+                                    <label for="inputtext"> Gender </label>
+                                    <div>
+                                        <div class="field-radiobutton">
+                                            <p-radioButton name="gender" value="Male"
+                                                formControlName="gender"></p-radioButton>
+                                            <span class="male">Male</span>
+                                            &nbsp;
+                                            <p-radioButton name="gender" value="Female" formControlName="gender"
+                                                inputId="Female"></p-radioButton>
+                                            <span class="male">Female</span>
+                                        </div>
+
+                                        <ng-container *ngIf="
+                                    editForm.controls['gender'].invalid &&
+                                    (editForm.controls['gender'].dirty ||
+                                      editForm.controls['gender'].touched)
+                                  ">
+                                            <div *ngIf="editForm.controls['gender'].errors?.['required']">
+                                                <small class="text-danger">Gender is required</small>
+                                            </div>
+                                        </ng-container>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div col-12>
+                                    <p-button class="mr-2" label="Save" (click)="updateProfile()"></p-button>
+                                    <p-button label="Back" (click)="back()"></p-button>
+                                </div>
+                            </div>
+                        </form>
+                    </p-panel>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

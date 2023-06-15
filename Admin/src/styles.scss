@@ -1,0 +1,548 @@
+/* You can add global styles to this file, and also import other style files */
+// @import '~bootstrap/scss/bootstrap';
+
+/* Importing Bootstrap SCSS file. */
+// @import '~bootstrap/scss/bootstrap';
+
+@import url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700');
+
+@import '~admin-lte/plugins/fontawesome-free/css/all.min.css';
+@import '~admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css';
+@import '~admin-lte/dist/css/adminlte.min.css';
+
+@import '~ngx-toastr/toastr';
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+
+.content {
+    padding: 0 0.5rem;
+}
+
+// Sidebar menu animation
+// Needed for open/close menu animation for menus with child nodes
+.nav .nav-item:not(.menu-open) > .ng-trigger-openClose,
+.nav .nav-item > .ng-trigger-openClose.ng-animating {
+    overflow: hidden;
+    display: block;
+}
+
+// Override original AdminLTE transform
+.nav-sidebar .menu-is-opening > .nav-link i.right,
+.nav-sidebar .menu-is-opening > .nav-link svg.right,
+.nav-sidebar .menu-open > .nav-link i.right,
+.nav-sidebar .menu-open > .nav-link svg.right {
+    overflow: hidden;
+    transform: none;
+}
+
+
+html, body {
+    overflow-x:hidden; 
+    overflow-y:auto; 
+    height: 100%; 
+}
+
+body {
+    margin: 0; 
+    font-family: Roboto, 
+    "Helvetica Neue", sans-serif; 
+}
+
+$theme_green_color:#80b53f;
+$delete_red_color:#e70e02;
+
+.wrapper{
+    overflow:hidden;
+    max-height: 0px;
+}
+
+.wrapper .content-wrapper {
+    max-height: 100%;
+    overflow-y: auto;
+    min-height: 100%;
+}
+
+.main-footer {
+    width: -webkit-fill-available;
+    position: absolute;
+    bottom: 0px;
+    height: 50px !important; 
+}
+
+.content-header {
+    padding: 0px 0rem;
+}
+
+.content-header .breadcrumb .breadcrumb-item a{
+    color: $theme_green_color;
+}
+
+#toast-container .toast-success{
+    background-color: $theme_green_color;
+}
+
+.container {
+    width: 100%;
+    padding: 15px;
+    max-width: 100%;
+}
+
+.padding_main{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.back_button_label{
+    display: flex;
+    gap: 15px;
+    flex-direction: row-reverse;
+}
+
+.back_button_text{
+    font-size:18px; 
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: $theme_green_color;
+    // background-color: #007bff;
+    color: #fff;
+}
+
+.card-primary.card-outline {
+    border-top: 3px solid $theme_green_color;
+}
+
+.card-body .list-group-item a{
+    color: black;
+}
+
+//primeng Buttons
+.p-button {
+    color: #ffffff;
+    background: $theme_green_color !important;
+    border: 1px solid $theme_green_color !important;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 6px;
+}
+
+.p-button:enabled:hover {
+    background: $theme_green_color !important;
+    color: #ffffff;
+    border-color: $theme_green_color;
+}
+
+.p-button:focus {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $theme_green_color, 0 1px 2px 0 black !important;
+}
+
+.p-button.p-button-info.p-button-text{
+    background-color: transparent;
+    color: $theme_green_color !important ;
+    border-color: transparent;
+}
+
+//
+.delete_button{
+    color: #ffffff;
+    background-color: $delete_red_color !important;
+    border: 1px solid $delete_red_color !important;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    border-radius: 6px;
+}
+
+.delete_button:enabled:hover {
+    background: $delete_red_color !important;
+    color: #ffffff;
+    border-color: $delete_red_color;
+}
+
+.delete_button:focus {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $delete_red_color, 0 1px 2px 0 black !important;
+}
+
+.delete_button .delete_label{
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+//
+
+//Confirmation PoupUp
+.p-confirm-dialog-accept:enabled {
+     background: $theme_green_color !important;
+    color: #ffffff;
+    border-color: $theme_green_color !important;
+}
+
+.p-confirm-dialog-accept:enabled:hover {
+    background: $theme_green_color !important;
+    color: #ffffff;
+    border-color: $theme_green_color !important;
+}
+
+.p-confirm-dialog-reject:enabled {
+    background: $delete_red_color !important;
+    color: #ffffff;
+    border-color: $delete_red_color !important;
+}
+
+.p-confirm-dialog-reject:enabled:hover {
+    background: $delete_red_color !important;
+    color: #ffffff;
+    border-color: $delete_red_color !important;
+}
+
+.p-confirm-dialog-reject:enabled:focus {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $delete_red_color, 0 1px 2px 0 black !important;
+}
+
+//radio button
+
+.p-radiobutton .p-radiobutton-box.p-highlight {
+    border-color: $theme_green_color !important;
+    background: $theme_green_color !important;
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
+    border-color: $theme_green_color !important;
+    background: $theme_green_color !important;
+    color: #ffffff;
+}
+
+.p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {
+    border-color: $theme_green_color !important;
+}
+
+
+
+.text_format{
+    text-transform: capitalize;
+}
+
+.mytable{
+    padding-bottom: 0px;
+    border: 1px solid #DADBDD;
+    border-radius: 2px;
+    border-top: 0px;
+    background: white;
+}
+
+.mytable .p-datatable .p-datatable-tbody > tr > td {
+    overflow-wrap: anywhere;
+}
+
+.mytable .p-paginator{
+    justify-content: end;
+}
+
+.mytable_doctor{
+    padding-bottom: 0px;
+    border: 1px solid #DADBDD;
+    border-radius: 2px;
+    border-top: 0px;
+    background: white;
+}
+
+.mytable_doctor .p-datatable .p-datatable-tbody > tr > td {
+    overflow-wrap: anywhere;
+}
+
+.mytable_doctor .p-datatable .p-datatable-thead > tr > th {
+    width: 250px;
+    overflow-x: auto;
+}
+
+.mytable_doctor .p-paginator{
+    justify-content: end;
+}
+
+.editForm_calendar .p-datepicker {
+    z-index: 9999 !important;
+    transform-origin: center bottom;
+    display: block !important;
+    top: 165px !important;
+    left: 258px !important;
+    position: fixed !important;
+}
+
+.editForm_calendar .p-calendar .p-datepicker {
+    min-width: 50% !important;
+}
+
+.rejectfield{
+    width: 400px;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid #c5bbbbdd;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+.rejectfield:focus-visible{
+   outline: none;
+}
+
+.text-danger {
+    font-size: 15px;
+    color: #dc3545!important;
+}
+
+.margin_panel { 
+    padding-bottom: 20px; 
+}
+
+.my_content_mgt_table .p-component {
+    border: 1px solid #DADBDD;
+    border-bottom: 0px solid #DADBDD;
+}
+
+.my_content_mgt_table .p-dropdown {
+    border-bottom: 1px solid #DADBDD;
+}
+
+.my_content_mgt_table .p-paginator{
+    justify-content: end;
+} 
+
+.doctor_panel .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
+    box-shadow: inset 0 0 0 0rem #bfdbfe;
+}
+
+// .delete_confirmation_popUp .p-confirm-dialog-accept:enabled {
+//     // background: #548C2F;
+//      background: $theme_green_color !important;
+//     color: #ffffff;
+//     border-color: $theme_green_color !important;
+// }
+
+// .delete_confirmation_popUp .p-confirm-dialog-accept:enabled:hover {
+//     background: $theme_green_color !important;
+//     color: #ffffff;
+//     border-color: $theme_green_color !important;
+// }
+
+// .delete_confirmation_popUp .p-confirm-dialog-reject:enabled {
+//     // background: #e70e02;
+//     background: $delete_red_color !important;
+//     color: #ffffff;
+//     border-color: $delete_red_color !important;
+// }
+
+// .delete_confirmation_popUp .p-confirm-dialog-reject:enabled:hover {
+//     background: $delete_red_color;
+//     color: #ffffff;
+//     border-color: $delete_red_color;
+// }
+
+// .delete_confirmation_popUp .p-confirm-dialog-reject:enabled:focus {
+//     box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px $delete_red_color, 0 1px 2px 0 black !important;
+// }
+
+.trash_color{
+    cursor: pointer;
+    // color: #e70e02;
+    color: $delete_red_color;
+    margin-right: 15px;
+}
+
+.edit_color{
+    color: $theme_green_color;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.eye_color{
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.my_mgt_Card{
+    background: white;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.editProfile_calendar .p-calendar {
+    position: relative;
+    display: flex;
+    max-width: 100%;
+}
+
+.editProfile_calendar .p-datepicker {
+    z-index: 1035 !important;
+}
+
+.faq_editor .ql-toolbar.ql-snow {
+    border: 1px solid #ccc !important;
+    padding: 2px;
+    background: white !important;
+    border-bottom: 0px solid white !important;
+}
+
+#doctor_review_tab_dropdown .p-dropdown {
+    width: 249px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 4px 0 4px 22px;
+    border-radius: 50px;
+    line-height: 19.07px;
+    border: 1px solid #009DFA;
+    font-family: 'Open Sans', sans-serif;
+  }
+  #doctor_review_tab_dropdown .p-dropdown span {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.07px;
+    color: #666666;
+  }
+
+.my_faq_paginator .p-paginator {
+    justify-content: flex-end;
+    background: #f8f9fa;
+}
+
+.small-box {
+    height: 115px;
+}
+
+.small-box>.small-box-footer {
+    position: absolute;
+    width: 100%;
+    top: 90px;
+
+
+}
+
+.mychart canvas{
+    height: 111px;
+}
+
+.logo{
+    height: 100px;  
+    margin-left: 30px;
+    margin-bottom: 25px;
+}
+
+.location_dropdown_field .p-dropdown{
+    width: 100% !important;
+}
+
+.location_dropdown_field .p-multiselect{
+    width: 100% !important;
+}
+
+.subSpecialityChips .p-chips .p-chips-multiple-container {
+    padding: 0.375rem 0.75rem;
+    min-width: 595px;
+}
+
+
+
+
+
+
+
+
+//Reponsive
+@media only screen and (max-width: 2000px) {
+
+    .wrapper .content-wrapper {
+        max-height: 970px;
+        min-height: 970px;
+    }
+
+    .my_mgt_Card{
+        max-height: 970px;
+        min-height: 970px;
+    }
+
+}
+
+@media only screen and (max-width: 1920px) {
+
+    .wrapper .content-wrapper {
+        max-height: 859px;
+        min-height: 859px;
+    }
+
+    .my_mgt_Card{
+        max-height: 859px;
+        min-height: 859px;
+    }
+}
+ 
+@media only screen and (max-width: 1680px) {
+
+    .wrapper .content-wrapper {
+        max-height: 970px;
+        min-height: 970px;
+    }
+
+    .my_mgt_Card{
+        max-height: 970px;
+        min-height: 970px;
+    }
+}
+
+@media only screen and (max-width: 1600px) {
+
+    .wrapper .content-wrapper {
+        max-height: 642px;
+        min-height: 642px;
+    }
+
+    .my_mgt_Card{
+        max-height: 642px;
+        min-height: 642px;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+
+    .wrapper .content-wrapper {
+        max-height: 789px;
+        min-height: 789px;
+    }
+
+    .my_mgt_Card{
+        max-height: 789px;
+        min-height: 789px;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+
+    .wrapper .content-wrapper {
+        max-height: 944px;
+        min-height: 944px;
+    }
+
+    .my_mgt_Card{
+        max-height: 944px;
+        min-height: 944px;
+    }
+}
+
+@media only screen and (max-width: 1367px){
+
+    .wrapper .content-wrapper {
+        max-height: 657px;
+        min-height: 657px;
+    }
+
+    .my_mgt_Card{
+        max-height: 657px;
+        min-height: 657px;
+    }
+}

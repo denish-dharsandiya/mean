@@ -1,0 +1,19 @@
+<!-- Brand Logo -->
+<a [routerLink]="['/dashboard']" class="brand-link">
+    <span class="brand-text" style="font-size: 600; margin-left: 20px;">
+    Content Management</span>
+</a>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <div class="form-inline mt-2">
+        <app-sidebar-search></app-sidebar-search>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2" style="overflow:hidden">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <app-menu-item *ngFor="let item of menu" [menuItem]="item"></app-menu-item>
+        </ul>
+    </nav>
+</div>

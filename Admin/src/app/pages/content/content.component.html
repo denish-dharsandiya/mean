@@ -1,0 +1,58 @@
+<ngx-spinner></ngx-spinner>
+<div class="container">
+    <div class="padding_main">
+        <div class="back_button_label">
+            <h2 class="main_heading">Content List</h2>
+            <button pButton pRipple type="button" label="Add Content"
+                class="p-button-raised" (click)="addNewContent()"></button>
+        </div>
+    </div>
+    <div class="profile_section">
+        <div class="my_content_mgt_table">
+            <p-table #dt1 [value]="pages" dataKey="id" [rows]="10" [showCurrentPageReport]="true"
+                [rowsPerPageOptions]="[10,25,50]" [paginator]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [globalFilterFields]="['name','country.name','activity','balance','status']">
+                <ng-template pTemplate="colgroup" let-columns>
+                    <colgroup>
+                        <col style="width:900px">
+                        <col style="width:120px">
+                    </colgroup>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-content>
+                    <tr>
+                        <td>
+                            <span class="text_format">{{content.name}}</span>
+                        </td>
+
+                        <td>
+                            <i class="fa-solid fa-eye eye_color" (click)="viewDetails(content._id)" title="View"></i>
+                            <i class="fa-solid fa-pen-to-square edit_color" (click)="editDetails(content._id)" title="Edit"></i>
+                            <i class="fa-solid fa-trash trash_color" (click)="deleteContent(content._id,content.name)" title="Delete"></i>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="2">No Record found.</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+    <p-confirmDialog styleClass="delete_confirmation_popUp" [style]="{width: '40vw'}" key="positionDialog"
+        [baseZIndex]="10000">
+    </p-confirmDialog>
+</div>
